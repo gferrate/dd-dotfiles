@@ -1,4 +1,13 @@
-# Prepend workspace name to prompt when inside a workspace
+# Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+[[ -d "$ZSH" ]] && source "$ZSH/oh-my-zsh.sh"
+
+# Enable autojump if available
+[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+
+# Prepend workspace name to prompt (after oh-my-zsh sets PROMPT with git_prompt_info)
 if [[ -n "$WORKSPACE_NAME" ]]; then
   PROMPT="%F{cyan}[$WORKSPACE_NAME]%f $PROMPT"
 fi
@@ -14,11 +23,9 @@ create_pr() {
 
   if [ -z "${PR_NAME}" ]; then
     echo "PR Comment missing"
-    # Restore previous options before returning
     return 1
   fi
 
-  # Format the PR title with JIRA ID if provided
   if [ -n "${JIRA_ID}" ]; then
     PR_TITLE="[${JIRA_ID}] ${PR_NAME}"
   else
@@ -31,7 +38,6 @@ create_pr() {
   MASTER=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
   if [ -z "${MASTER}" ]; then
     echo "Master branch not found"
-    # Restore previous options before returning
     return 1
   fi
   git stash
@@ -44,19 +50,16 @@ create_pr() {
   PR_URL=$(gh pr view --json url -q .url)
   if [ -z "${PR_URL}" ]; then
     echo "PR URL not found"
-    # Restore previous options before returning
     return 1
   fi
   echo $PR_URL
   TO_COPY=":pr: [$PR_TITLE]($PR_URL)"
 
   if command -v pbcopy >/dev/null 2>&1; then
-    echo $TO_COPY | pbcopy # Copy to clipboard
+    echo $TO_COPY | pbcopy
     echo "PR link copied to clipboard with Slack formatting"
   else
     echo "pbcopy not available. PR link: $TO_COPY"
     echo "PR link not copied to clipboard - pbcopy command not found"
   fi
-
-  # Restore previous options before exiting function
 }

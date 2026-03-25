@@ -13,4 +13,4 @@ done
 
 # Install tools
 sudo apt-get update -qq
-sudo apt-get install -y -qq neovim gh
+sudo apt-get install -y -qq neovim gh autojump
