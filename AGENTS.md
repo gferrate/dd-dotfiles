@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Personal dotfiles for Datadog Workspaces, owned by gferrate. These files are symlinked into `$HOME` on workspace creation via `install.sh`. The dotfiles are meant to be migrated to the internal `DataDog/workspaces-dotfiles` repo under `users/gabriel.ferrate/`.
+Personal dotfiles for remote development workspaces, owned by gferrate. These files are symlinked into `$HOME` on workspace creation via `install.sh`. The dotfiles can be migrated to an internal dotfiles repo for automatic application.
 
 ## File structure
 
@@ -25,6 +25,16 @@ Personal dotfiles for Datadog Workspaces, owned by gferrate. These files are sym
 ## Active workspaces
 
 Workspaces are created in `eu-west-3` with `--shell zsh`. Naming convention: `gferrate-<name>-<num>`.
+
+## Security — public repo
+
+This is a public repository. Never commit:
+- Secrets, tokens, API keys, or credentials
+- Internal company repo names, URLs, or infrastructure details
+- Workspace names, hostnames, or IP addresses
+- Internal tooling specifics (paths, env vars, service names) that are not already public
+
+When in doubt, keep it generic. Use placeholders like `<internal-repo>` instead of real names.
 
 ## Guidelines for editing
 
