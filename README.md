@@ -15,8 +15,11 @@ Migrate to the internal dotfiles repo:
 workspaces dotfiles migrate https://github.com/gferrate/dd-dotfiles
 ```
 
-Then create a workspace (dotfiles are applied automatically):
+Then create a workspace from the dogweb repo (dotfiles are applied automatically):
 
 ```bash
+cd ~/dd/dogweb
 workspaces create gferrate-<num> --region eu-west-3 --repo dogweb --shell zsh
 ```
+
+**Note:** Run `workspaces create` from a DataDog repo directory (e.g. `~/dd/dogweb`), not from this dotfiles repo.
