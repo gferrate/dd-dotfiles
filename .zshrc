@@ -15,6 +15,9 @@ if [[ -n "$WORKSPACE_NAME" ]]; then
   PROMPT="%F{cyan}[$WORKSPACE_NAME]%f $PROMPT"
 fi
 
+# Aliases
+alias cc="claude --dangerously-skip-permissions"
+
 slugify() {
   echo $1 | iconv -t ascii//TRANSLIT | sed -E 's/[~\^]+//g' | sed -E 's/[^a-zA-Z0-9]+/-/g' | sed -E 's/^-+\|-+$//g' | sed -E 's/^-+//g' | sed -E 's/-+$//g' | tr A-Z a-z
 }
