@@ -18,5 +18,5 @@ workspaces dotfiles migrate https://github.com/gferrate/dd-dotfiles
 Then create a workspace (dotfiles are applied automatically):
 
 ```bash
-workspaces create gabriel-ferrate --region eu-west-3 --repo dogweb --shell zsh
+workspaces create gferrate-<num> --region eu-west-3 --repo dogweb --shell zsh
 ```
