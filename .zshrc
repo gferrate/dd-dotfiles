@@ -4,6 +4,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 [[ -d "$ZSH" ]] && source "$ZSH/oh-my-zsh.sh"
 
+# Go
+export PATH="$(go env GOPATH)/bin:$PATH"
+
 # Enable autojump if available
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 
