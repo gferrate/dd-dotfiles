@@ -4,6 +4,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 [[ -d "$ZSH" ]] && source "$ZSH/oh-my-zsh.sh"
 
+# Editor
+export EDITOR=vim
+export VISUAL=vim
+
 # Go
 export PATH="$(go env GOPATH)/bin:$PATH"
 
