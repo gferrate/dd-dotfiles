@@ -14,3 +14,6 @@ done
 # Install tools
 sudo apt-get update -qq
 sudo apt-get install -y -qq neovim gh autojump
+
+# Enable auto push setup for new branches
+git config --global push.autoSetupRemote true
